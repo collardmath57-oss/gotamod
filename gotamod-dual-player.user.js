@@ -31,6 +31,13 @@
     // Initialize dual player setup
     function initializeDualPlayer() {
         if (isInitialized) return;
+        
+        // Prevent infinite recursion - don't initialize if we're inside an iframe
+        if (window.self !== window.top) {
+            console.log('GotaMod: Running inside iframe, skipping initialization');
+            return;
+        }
+        
         isInitialized = true;
 
         // Hide original body content
@@ -62,8 +69,11 @@
         player2Frame = createPlayerFrame('player2', 2);
         container.appendChild(player2Frame);
 
-        // Clear body and append container
-        document.body.innerHTML = '';
+        // Hide existing content and append container
+        const existingContent = document.body.children;
+        for (let i = 0; i < existingContent.length; i++) {
+            existingContent[i].style.display = 'none';
+        }
         document.body.appendChild(container);
 
         // Create status indicator

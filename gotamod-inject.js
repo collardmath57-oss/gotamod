@@ -48,6 +48,12 @@
                 return;
             }
 
+            // Prevent infinite recursion - don't initialize if we're inside an iframe
+            if (window.self !== window.top) {
+                console.log('GotaMod: Running inside iframe, skipping initialization');
+                return;
+            }
+
             // Merge custom config
             if (customConfig) {
                 Object.assign(this.config, customConfig);
@@ -357,7 +363,7 @@
     };
 
     // Auto-initialize if on gota.io
-    if (window.location.hostname.includes('gota.io')) {
+    if (window.location.hostname === 'gota.io' || window.location.hostname.endsWith('.gota.io')) {
         // Wait for DOM to be ready
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', function() {
