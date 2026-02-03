@@ -1,0 +1,29 @@
+{
+  "name": "gotamod",
+  "version": "1.0.0",
+  "description": "Dual Player Control for Gota.io - Control two players on one page with right-click switching",
+  "main": "gotamod-inject.js",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/collardmath57-oss/gotamod.git"
+  },
+  "keywords": [
+    "gota.io",
+    "tampermonkey",
+    "userscript",
+    "game",
+    "dual-player",
+    "multi-window"
+  ],
+  "author": "gotamod team",
+  "license": "MIT",
+  "files": [
+    "gotamod-dual-player.user.js",
+    "gotamod-inject.js",
+    "demo.html",
+    "README.md"
+  ]
+}

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GotaMod - Demo Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin: 30px 0;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #00ff00;
+            border-bottom: 2px solid #00ff00;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00ff00;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: linear-gradient(135deg, #00ff00, #00aa00);
+            color: white;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 0, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button.danger {
+            background: linear-gradient(135deg, #ff4444, #aa0000);
+        }
+
+        button.danger:hover {
+            box-shadow: 0 5px 15px rgba(255, 68, 68, 0.4);
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+
+        .code-block code {
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+        }
+
+        .key-binding {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            margin: 0 5px;
+        }
+
+        .demo-game {
+            width: 100%;
+            height: 400px;
+            background: #000;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        .status {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 255, 0, 0.2);
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        a {
+            color: #00ff00;
+            text-decoration: none;
+            border-bottom: 1px solid #00ff00;
+        }
+
+        a:hover {
+            color: #00ff88;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 GotaMod</h1>
+        <div class="subtitle">Dual Player Control for Gota.io</div>
+
+        <div class="status" id="status">
+            Ready to initialize
+        </div>
+
+        <div class="section">
+            <h2>Features</h2>
+            <ul class="feature-list">
+                <li>Control two players on a single page</li>
+                <li>Switch between players with right mouse button</li>
+                <li>Visual indicators for active player</li>
+                <li>Keyboard shortcuts (Tab, 1, 2)</li>
+                <li>Toggle between horizontal and vertical split</li>
+                <li>Aesthetic enhancement - purely for visual/control purposes</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Controls</h2>
+            <p><strong>Switch Player:</strong> <span class="key-binding">Right Click</span> or <span class="key-binding">Tab</span></p>
+            <p><strong>Select Player 1:</strong> <span class="key-binding">1</span></p>
+            <p><strong>Select Player 2:</strong> <span class="key-binding">2</span></p>
+            <p><strong>Toggle Split Mode:</strong> Click "Toggle Split" button</p>
+        </div>
+
+        <div class="section">
+            <h2>Demo Controls</h2>
+            <div class="controls">
+                <button onclick="initGotaMod()">Initialize GotaMod</button>
+                <button onclick="disableGotaMod()" class="danger">Disable GotaMod</button>
+                <button onclick="toggleSplit()">Toggle Split Mode</button>
+                <button onclick="switchPlayer()">Switch Player</button>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Installation</h2>
+            <p><strong>Method 1: Tampermonkey Script</strong></p>
+            <ol>
+                <li>Install <a href="https://www.tampermonkey.net/" target="_blank">Tampermonkey</a> browser extension</li>
+                <li>Click on Tampermonkey icon → "Create new script"</li>
+                <li>Copy the content of <code>gotamod-dual-player.user.js</code></li>
+                <li>Save and enable the script</li>
+                <li>Visit gota.io and enjoy!</li>
+            </ol>
+
+            <p><strong>Method 2: CDN Injection</strong></p>
+            <div class="code-block">
+                <code>var script = document.createElement('script');<br>
+script.src = 'https://your-cdn.com/gotamod-inject.js';<br>
+document.head.appendChild(script);</code>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>How It Works</h2>
+            <p>GotaMod creates two iframe instances of gota.io side by side on a single page. The active player has a colored border and full opacity, while the inactive player is slightly dimmed. You can instantly switch between controlling each player using the right mouse button.</p>
+            <p><strong>Note:</strong> This is purely an aesthetic and control enhancement. It doesn't modify game mechanics or provide unfair advantages.</p>
+        </div>
+    </div>
+
+    <script>
+        function updateStatus(message, type = 'info') {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.style.background = type === 'success' ? 'rgba(0, 255, 0, 0.2)' :
+                                      type === 'error' ? 'rgba(255, 0, 0, 0.2)' :
+                                      'rgba(0, 255, 0, 0.2)';
+        }
+
+        function initGotaMod() {
+            if (typeof window.GotaMod === 'undefined') {
+                updateStatus('Loading GotaMod...', 'info');
+                const script = document.createElement('script');
+                script.src = 'gotamod-inject.js';
+                script.onload = function() {
+                    // Wait a bit for initialization
+                    setTimeout(() => {
+                        if (window.GotaMod && window.GotaMod.isEnabled()) {
+                            updateStatus('GotaMod initialized successfully!', 'success');
+                        } else {
+                            window.GotaMod.init();
+                            updateStatus('GotaMod initialized!', 'success');
+                        }
+                    }, 100);
+                };
+                script.onerror = function() {
+                    updateStatus('Failed to load GotaMod script', 'error');
+                };
+                document.head.appendChild(script);
+            } else if (!window.GotaMod.isEnabled()) {
+                window.GotaMod.enable();
+                updateStatus('GotaMod enabled!', 'success');
+            } else {
+                updateStatus('GotaMod is already running', 'info');
+            }
+        }
+
+        function disableGotaMod() {
+            if (typeof window.GotaMod !== 'undefined' && window.GotaMod.isEnabled()) {
+                window.GotaMod.disable();
+                updateStatus('GotaMod disabled', 'info');
+            } else {
+                updateStatus('GotaMod is not running', 'info');
+            }
+        }
+
+        function toggleSplit() {
+            if (typeof window.GotaMod !== 'undefined' && window.GotaMod.isEnabled()) {
+                window.GotaMod.toggleSplitMode();
+                updateStatus('Split mode toggled', 'success');
+            } else {
+                updateStatus('Please initialize GotaMod first', 'error');
+            }
+        }
+
+        function switchPlayer() {
+            if (typeof window.GotaMod !== 'undefined' && window.GotaMod.isEnabled()) {
+                window.GotaMod.switchPlayer();
+                const activePlayer = window.GotaMod.getActivePlayer();
+                updateStatus(`Switched to Player ${activePlayer}`, 'success');
+            } else {
+                updateStatus('Please initialize GotaMod first', 'error');
+            }
+        }
+
+        // Keyboard shortcut hints
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'h' || e.key === 'H') {
+                alert('GotaMod Keyboard Shortcuts:\n\n' +
+                      'Tab - Switch Player\n' +
+                      '1 - Select Player 1\n' +
+                      '2 - Select Player 2\n' +
+                      'Right Click - Switch Player\n' +
+                      'H - Show this help');
+            }
+        });
+    </script>
+</body>
+</html>
