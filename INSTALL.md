@@ -1,7 +1,8 @@
 # GotaMod - Super Simple Installation
 
 ## 🎮 What is this?
-Control **2 players** at the same time in gota.io on **1 page**!
+Connect **2 players to the SAME server** in gota.io on **1 page**!  
+Perfect for gota.io/camlan - both players join the same game!
 
 ## ⚡ 3-Step Installation
 
@@ -12,29 +13,35 @@ Click your browser:
 - **[Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)**
 
 ### Step 2: Install Script
-1. Click **[gotamod.user.js](gotamod.user.js)** to download
-2. Tampermonkey will pop up → Click **"Install"**
+1. Open Tampermonkey dashboard (click icon → Dashboard)
+2. Click **"Create a new script"** (+ icon)
+3. Delete everything and paste the code from **gotamod.user.js**
+4. Save (Ctrl+S or File → Save)
 
 ### Step 3: Play!
-1. Go to **https://gota.io/**
-2. Page splits into 2 game windows
-3. **Right-click** anywhere to switch between players!
+1. Go to **https://gota.io/camlan** (or any gota.io URL)
+2. Start a game
+3. **Both Player 1 and Player 2 connect to the SAME server!**
+4. **Right-click** anywhere to switch between players!
 
 ## 🎯 How to Use
 
 ```
-┌─────────────────────────────────────────┐
-│     Player 1 Active (Right-click)       │  ← Top indicator
-├────────────────────┬────────────────────┤
-│                    │                    │
-│   Player 1 🟢     │   Player 2 ⚪     │
-│   (GREEN BORDER)   │   (GRAY BORDER)    │
-│                    │                    │
-│   ← You control    │   ← Inactive       │
-│                    │                    │
-└────────────────────┴────────────────────┘
+┌──────────────────────────────────────────┐
+│  🎮 Player 1 (LEFT) | Right-Click Switch │  ← Top indicator
+├──────────────────────┬───────────────────┤
+│                      │                   │
+│   Player 1 🟢       │   Player 2 ⚪    │
+│   (GREEN BORDER)     │   (RED BORDER)    │
+│                      │                   │
+│   ← You control      │   ← Inactive      │
+│   this player        │   this player     │
+│                      │                   │
+│   Both players are in the SAME game!    │
+│                      │                   │
+└──────────────────────┴───────────────────┘
 
-         Right-click to switch! →
+         Right-click ANYWHERE to switch! →
 ```
 
 ## 🎮 Controls
@@ -43,7 +50,16 @@ Click your browser:
 |--------|-----|
 | **Switch players** | Right-click anywhere |
 | **Control active player** | Mouse + Keyboard (play normally) |
-| **See active player** | Look for GREEN border |
+| **See active player** | GREEN border (P1 left) or RED border (P2 right) |
+
+## ✨ What Makes This Special?
+
+**SAME SERVER!** Both Player 1 and Player 2 connect to the **SAME game server**. This is NOT two separate games - it's TWO players in ONE game!
+
+- ✅ Play on gota.io/camlan with 2 players
+- ✅ Both players in the same match
+- ✅ Control either player instantly
+- ✅ No need for 2 browser windows!
 
 ## ❓ Problems?
 

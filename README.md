@@ -1,14 +1,18 @@
-# GotaMod - Dual Player Control for Gota.io
+# GotaMod - Dual Player Same Server for Gota.io
 
-A Tampermonkey userscript that enables controlling two players on a single page in gota.io, with easy switching between players using right-click.
+A Tampermonkey userscript that enables connecting **TWO players to the SAME server** in gota.io (including gota.io/camlan), with easy switching between players using right-click.
+
+## 🎯 Key Feature: SAME SERVER!
+
+Unlike other mods, this connects **both players to the SAME game server**. You're not opening two separate sessions - you're controlling two players in the SAME game!
 
 ## Features
 
-- 🎮 **Dual Player Control** - Control two game instances simultaneously on one page
-- 🖱️ **Right-Click Switching** - Switch between players with a simple right-click
-- 🎨 **Visual Indicators** - Clear borders and indicators show which player is active
-- 🌐 **CDN Support** - Modular architecture with CDN-hosted injection code
-- ⚡ **Performance Optimized** - Efficient event routing and game state management
+- 🎮 **Same Server Connection** - Both players join the SAME game server (not separate sessions!)
+- 🖱️ **Right-Click Switching** - Switch between Player 1 (left) and Player 2 (right) instantly  
+- 🎨 **Visual Indicators** - Green border (Player 1), Red border (Player 2)
+- ⚡ **Real Dual Control** - Two actual game connections to the same server
+- 🌐 **Works Everywhere** - gota.io, gota.io/camlan, all servers
 
 ## Installation
 
@@ -19,48 +23,58 @@ A Tampermonkey userscript that enables controlling two players on a single page 
    - [Firefox](https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/)
    - [Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
 
-### Method 1: Basic Version (Recommended for most users)
+### Installation Steps
 
 1. Open Tampermonkey dashboard in your browser
 2. Click on "Create a new script"
-3. Copy the contents of `gotamod.user.js` and paste it
-4. Save the script (Ctrl+S or Cmd+S)
-5. Navigate to gota.io and the script will activate automatically
-
-### Method 2: CDN Version (Advanced)
-
-1. Open Tampermonkey dashboard in your browser
-2. Click on "Create a new script"
-3. Copy the contents of `gotamod-cdn.user.js` and paste it
-4. Save the script
-5. Navigate to gota.io
-
-The CDN version will automatically load the inject.js from jsDelivr CDN:
-```
-https://cdn.jsdelivr.net/gh/collardmath57-oss/gotamod@main/inject.js
-```
+3. Copy the contents of `gotamod.user.js` from this repository
+4. Paste it into Tampermonkey and save (Ctrl+S or Cmd+S)
+5. Go to **gota.io/camlan** (or any gota.io URL)
+6. The script will activate - you'll see borders and an indicator
+7. Start a game - TWO players will connect to the SAME server!
 
 ## Usage
 
 ### Starting the Game
 
-1. Navigate to https://gota.io/
-2. The page will automatically split into two game instances
-3. Each side will show a separate game view
+1. Navigate to https://gota.io/camlan (or any gota.io server)
+2. Click to start a game as normal
+3. The page will show split borders (green left, red right)
+4. **Both Player 1 and Player 2 will connect to the SAME server**
 
 ### Controls
 
-- **Left Side (Player 1)**: Green border when active
-- **Right Side (Player 2)**: Red border when active
-- **Right-Click**: Switch between Player 1 and Player 2
-- **Mouse & Keyboard**: Automatically routed to the active player
-- **Top Center Indicator**: Shows which player is currently active
+- **Player 1 (LEFT side)**: Green border when active
+- **Player 2 (RIGHT side)**: Red border when active  
+- **Right-Click anywhere**: Switch between Player 1 and Player 2
+- **Mouse & Keyboard**: Control whichever player is currently active
+- **Top Indicator**: Shows which player you're controlling
 
-### Tips
+### How It Works
 
-- Start playing in one instance first, then switch to control the second player
-- Use right-click frequently to manage both players effectively
-- Each player has independent game state and connection
+The script intercepts the WebSocket connection and creates **TWO connections** to the same game server. When you switch players with right-click, your inputs are routed to the corresponding connection. This means:
+
+✅ Both players are in the SAME game  
+✅ Both players are on the SAME server  
+✅ You see both players in the game world  
+✅ You can switch between them instantly  
+
+## Troubleshooting
+
+### Script doesn't activate
+- Ensure Tampermonkey is installed and enabled
+- Check the script is enabled in Tampermonkey dashboard
+- Refresh the gota.io page
+
+### Only one player connects
+- Make sure you're using the v2.0.0 version of the script
+- Check browser console (F12) for any errors
+- The script needs `@grant unsafeWindow` permission
+
+### Can't switch between players
+- Ensure right-click isn't blocked by your browser
+- Look for the green/red borders - they indicate the script is active
+- Check console for "[GotaMod v2]" messages
 
 ## File Structure
 
