@@ -1,6 +1,14 @@
 # GotaMod - Dual Player Controller for Gota.io
 
+> 🇫🇷 [Version française](INSTALLATION_FR.md) | 🇬🇧 English | 🚀 [Quick Start](QUICKSTART.md)
+
 A Tampermonkey userscript that allows you to control two players on a single page for gota.io with seamless switching using right-click.
+
+## ⚡ Quick Install
+
+**[📥 Click here to install GotaMod](https://cdn.jsdelivr.net/gh/collardmath57-oss/gotamod@latest/gotamod.user.js)** (Requires [Tampermonkey](https://www.tampermonkey.net/))
+
+**🇫🇷 Pour les francophones :** [Guide d'installation en français](INSTALLATION_FR.md)
 
 ## 🎮 Features
 

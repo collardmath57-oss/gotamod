@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installer GotaMod - Install GotaMod</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+        }
+        
+        .lang-switch {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .lang-btn {
+            padding: 10px 20px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .lang-btn.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .lang-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .content {
+            display: none;
+        }
+        
+        .content.active {
+            display: block;
+        }
+        
+        .install-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .install-box h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .big-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 10px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .big-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        .step {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 15px;
+        }
+        
+        .step h3 {
+            display: inline-block;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .step p {
+            margin-top: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .step a {
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .controls {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .controls h3 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+        
+        .control-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+        
+        .key {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-right: 15px;
+            min-width: 120px;
+            text-align: center;
+        }
+        
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            color: #155724;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 GotaMod</h1>
+            <p class="subtitle">Contrôleur Dual Player pour Gota.io</p>
+        </div>
+        
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="switchLang('fr')">🇫🇷 Français</button>
+            <button class="lang-btn" onclick="switchLang('en')">🇬🇧 English</button>
+        </div>
+        
+        <!-- French Content -->
+        <div id="fr-content" class="content active">
+            <div class="install-box">
+                <h2>⚡ Installation en 2 clics</h2>
+                <p style="font-size: 1.2em; margin: 20px 0;">Suivez ces étapes simples pour installer GotaMod</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <h3>Installer Tampermonkey</h3>
+                <p>
+                    Tampermonkey est une extension gratuite qui permet d'exécuter des scripts utilisateur.
+                    <br><br>
+                    <a href="https://www.tampermonkey.net/" target="_blank" class="big-button" style="font-size: 1em; padding: 15px 30px;">
+                        📥 Installer Tampermonkey
+                    </a>
+                </p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <h3>Installer GotaMod</h3>
+                <p>
+                    Une fois Tampermonkey installé, cliquez sur ce bouton :
+                    <br><br>
+                    <a href="https://cdn.jsdelivr.net/gh/collardmath57-oss/gotamod@latest/gotamod.user.js" class="big-button" style="font-size: 1em; padding: 15px 30px;">
+                        ⭐ Installer GotaMod
+                    </a>
+                    <br><br>
+                    Tampermonkey s'ouvrira automatiquement. Cliquez simplement sur "Installer".
+                </p>
+            </div>
+            
+            <div class="success">
+                <strong>✅ C'est terminé !</strong><br>
+                Visitez <a href="https://gota.io" target="_blank">gota.io</a> et faites un clic droit pour changer de joueur !
+            </div>
+            
+            <div class="controls">
+                <h3><span class="emoji">🎮</span> Contrôles</h3>
+                <div class="control-item">
+                    <span class="key">Clic Droit</span>
+                    <span>Changer entre Joueur 1 et Joueur 2</span>
+                </div>
+                <div class="control-item">
+                    <span class="key">Tab</span>
+                    <span>Méthode alternative pour changer</span>
+                </div>
+                <div class="control-item">
+                    <span class="key">1</span>
+                    <span>Sélectionner le Joueur 1</span>
+                </div>
+                <div class="control-item">
+                    <span class="key">2</span>
+                    <span>Sélectionner le Joueur 2</span>
+                </div>
+            </div>
+            
+            <div class="warning">
+                <strong>💡 Astuce :</strong> Maintenez Shift + Clic Droit pour afficher le menu contextuel normal du navigateur.
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p><a href="INSTALLATION_FR.md">📖 Guide d'installation détaillé en français</a></p>
+                <p><a href="https://github.com/collardmath57-oss/gotamod">🌐 Voir sur GitHub</a></p>
+            </div>
+        </div>
+        
+        <!-- English Content -->
+        <div id="en-content" class="content">
+            <div class="install-box">
+                <h2>⚡ Install in 2 Clicks</h2>
+                <p style="font-size: 1.2em; margin: 20px 0;">Follow these simple steps to install GotaMod</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <h3>Install Tampermonkey</h3>
+                <p>
+                    Tampermonkey is a free extension that allows you to run userscripts.
+                    <br><br>
+                    <a href="https://www.tampermonkey.net/" target="_blank" class="big-button" style="font-size: 1em; padding: 15px 30px;">
+                        📥 Install Tampermonkey
+                    </a>
+                </p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <h3>Install GotaMod</h3>
+                <p>
+                    Once Tampermonkey is installed, click this button:
+                    <br><br>
+                    <a href="https://cdn.jsdelivr.net/gh/collardmath57-oss/gotamod@latest/gotamod.user.js" class="big-button" style="font-size: 1em; padding: 15px 30px;">
+                        ⭐ Install GotaMod
+                    </a>
+                    <br><br>
+                    Tampermonkey will open automatically. Simply click "Install".
+                </p>
+            </div>
+            
+            <div class="success">
+                <strong>✅ You're done!</strong><br>
+                Visit <a href="https://gota.io" target="_blank">gota.io</a> and right-click to switch players!
+            </div>
+            
+            <div class="controls">
+                <h3><span class="emoji">🎮</span> Controls</h3>
+                <div class="control-item">
+                    <span class="key">Right Click</span>
+                    <span>Switch between Player 1 and Player 2</span>
+                </div>
+                <div class="control-item">
+                    <span class="key">Tab</span>
+                    <span>Alternative switching method</span>
+                </div>
+                <div class="control-item">
+                    <span class="key">1</span>
+                    <span>Select Player 1</span>
+                </div>
+                <div class="control-item">
+                    <span class="key">2</span>
+                    <span>Select Player 2</span>
+                </div>
+            </div>
+            
+            <div class="warning">
+                <strong>💡 Tip:</strong> Hold Shift + Right Click to show the normal browser context menu.
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p><a href="INSTALLATION.md">📖 Detailed installation guide in English</a></p>
+                <p><a href="https://github.com/collardmath57-oss/gotamod">🌐 View on GitHub</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function switchLang(lang) {
+            // Hide all content
+            document.querySelectorAll('.content').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Remove active from all buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected content
+            document.getElementById(lang + '-content').classList.add('active');
+            
+            // Activate button
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
