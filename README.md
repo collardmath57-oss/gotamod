@@ -11,6 +11,16 @@ Control two players on a single page for gota.io with seamless switching using r
 - **Flexible Layout**: Toggle between horizontal and vertical split screen modes
 - **Aesthetic Enhancement**: Purely for visual and control purposes - no gameplay advantages
 
+## 📸 Screenshots
+
+### Demo Page
+![GotaMod Demo](https://github.com/user-attachments/assets/5b76f70e-0d99-4976-a73d-a1d623cf1791)
+
+### Active Dual Player View
+![GotaMod Active](https://github.com/user-attachments/assets/c65a5dab-1dc3-48f2-9c54-c80f16de256a)
+
+*The active player (left, green border) is bright and clear, while the inactive player (right) is dimmed.*
+
 ## 🚀 Installation
 
 ### Method 1: Tampermonkey Script (Recommended)
