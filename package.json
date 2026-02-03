@@ -1,0 +1,27 @@
+{
+  "name": "gotamod",
+  "version": "1.0.0",
+  "description": "Dual player control userscript for gota.io",
+  "main": "inject.js",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/collardmath57-oss/gotamod.git"
+  },
+  "keywords": [
+    "gota.io",
+    "userscript",
+    "tampermonkey",
+    "dual-player",
+    "game-mod"
+  ],
+  "author": "GotaMod Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/collardmath57-oss/gotamod/issues"
+  },
+  "homepage": "https://github.com/collardmath57-oss/gotamod#readme",
+  "jsdelivr": "inject.js"
+}
