@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GotaMod v2.0 - Dual Player Same Server</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .version {
+            font-size: 18px;
+            color: #4ade80;
+            font-weight: bold;
+        }
+
+        .hero-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 800px;
+            margin-bottom: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-box h2 {
+            color: #4ade80;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        .hero-box p {
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #4ade80;
+        }
+
+        .feature-card .icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: #4ade80;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .feature-card p {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .install-box {
+            background: rgba(74, 222, 128, 0.2);
+            border: 3px solid #4ade80;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 800px;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .install-box h2 {
+            color: #4ade80;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        .install-steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .install-steps li {
+            counter-increment: step-counter;
+            margin-bottom: 20px;
+            padding-left: 50px;
+            position: relative;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .install-steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #4ade80;
+            color: #1e3c72;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #4ade80;
+            color: #1e3c72;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px;
+            margin: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(74, 222, 128, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(74, 222, 128, 0.6);
+        }
+
+        .demo-diagram {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            max-width: 700px;
+            margin: 20px auto;
+            border: 2px solid #4ade80;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        .warning {
+            background: rgba(255, 193, 7, 0.2);
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .warning h3 {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎮 GotaMod v2.0</h1>
+        <p class="version">Dual Player - Same Server Edition</p>
+    </div>
+
+    <div class="hero-box">
+        <h2>🎯 What Makes This Special?</h2>
+        <p>
+            <strong>BOTH PLAYERS ON THE SAME SERVER!</strong> Unlike other mods that open two separate 
+            browser windows or tabs, GotaMod v2.0 connects TWO players to the SAME game server. 
+            This means you control two players in the SAME match, on the SAME server, in the SAME game world.
+            Perfect for <strong>gota.io/camlan</strong> and all other gota.io servers!
+        </p>
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="icon">🔗</div>
+            <h3>Same Server</h3>
+            <p>Both Player 1 and Player 2 connect to the exact same game server. No separate sessions!</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">🖱️</div>
+            <h3>Right-Click Switch</h3>
+            <p>Instantly switch between Player 1 (left) and Player 2 (right) with a simple right-click.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">🎨</div>
+            <h3>Visual Indicators</h3>
+            <p>Green border for Player 1, red border for Player 2. Always know who you're controlling.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">⚡</div>
+            <h3>Real Dual Control</h3>
+            <p>True WebSocket hook creates two actual game connections. Both players are real!</p>
+        </div>
+    </div>
+
+    <div class="install-box">
+        <h2>📥 Installation</h2>
+        <ol class="install-steps">
+            <li>Install <a href="https://www.tampermonkey.net/" target="_blank" style="color: #4ade80;">Tampermonkey</a> browser extension</li>
+            <li>Open Tampermonkey dashboard and create a new script</li>
+            <li>Copy the code from <code>gotamod.user.js</code> in this repository</li>
+            <li>Paste into Tampermonkey and save (Ctrl+S)</li>
+            <li>Go to <strong>gota.io/camlan</strong> and start playing!</li>
+        </ol>
+    </div>
+
+    <div class="demo-diagram">
+┌────────────────────────────────────────────────────┐
+│    🎮 Player 1 (LEFT) | Right-Click to Switch     │
+├──────────────────────────┬─────────────────────────┤
+│                          │                         │
+│    Player 1 🟢          │    Player 2 🔴         │
+│    (GREEN BORDER)        │    (RED BORDER)         │
+│                          │                         │
+│    ← Active              │    ← Inactive           │
+│    You control this      │    Waiting...           │
+│                          │                         │
+│         SAME GAME SERVER                           │
+│                          │                         │
+└──────────────────────────┴─────────────────────────┘
+
+Right-click anywhere to switch control!
+    </div>
+
+    <div class="warning">
+        <h3>⚠️ Important</h3>
+        <p>
+            The script needs <code>@grant unsafeWindow</code> permission to hook into the WebSocket.
+            Make sure this permission is enabled in Tampermonkey settings.
+        </p>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="gotamod.user.js" class="cta-button" download>📥 Download Script</a>
+        <a href="https://github.com/collardmath57-oss/gotamod" class="cta-button" target="_blank">📖 View on GitHub</a>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; opacity: 0.7;">
+        <p>GotaMod v2.0 - MIT License - 2026</p>
+    </div>
+</body>
+</html>
