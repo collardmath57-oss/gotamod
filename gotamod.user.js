@@ -25,10 +25,6 @@
 
     let activePlayerIndex = 0; // 0 or 1
     let gameConnections = [];
-    let playerStates = [
-        { mouseX: 0, mouseY: 0, mouseDown: false, keys: {}, name: 'Player1' },
-        { mouseX: 0, mouseY: 0, mouseDown: false, keys: {}, name: 'Player2' }
-    ];
     let indicator = null;
     let overlays = [];
     let isInitialized = false;
@@ -42,9 +38,6 @@
         // Create TWO connections to the same server
         const ws1 = new OriginalWebSocket(url, protocols);
         const ws2 = new OriginalWebSocket(url, protocols);
-        
-        ws1._gotamodId = 0;
-        ws2._gotamodId = 1;
         
         gameConnections = [ws1, ws2];
         
@@ -66,11 +59,12 @@
             console.log('[GotaMod v2] Player 2 received:', e.data);
         });
         
-        // Return active player's connection
-        // This is a proxy that routes to the correct WebSocket
-        const activeWS = new Proxy(ws1, {
+        // Return active player's connection with safety check
+        // Store the current active index to avoid race conditions
+        const proxyHandler = {
             get(target, prop) {
-                const activeConn = gameConnections[activePlayerIndex];
+                const currentIndex = activePlayerIndex;
+                const activeConn = gameConnections[currentIndex];
                 if (!activeConn) return target[prop];
                 
                 if (typeof activeConn[prop] === 'function') {
@@ -79,12 +73,14 @@
                 return activeConn[prop];
             },
             set(target, prop, value) {
-                // Set on BOTH connections
+                // Set on BOTH connections to maintain consistency
                 if (gameConnections[0]) gameConnections[0][prop] = value;
                 if (gameConnections[1]) gameConnections[1][prop] = value;
                 return true;
             }
-        });
+        };
+        
+        const activeWS = new Proxy(ws1, proxyHandler);
         
         return activeWS;
     };
@@ -183,35 +179,7 @@
             return false;
         }, true);
         
-        // Track mouse movement
-        document.addEventListener('mousemove', (e) => {
-            playerStates[activePlayerIndex].mouseX = e.clientX;
-            playerStates[activePlayerIndex].mouseY = e.clientY;
-        }, true);
-        
-        // Track mouse clicks
-        document.addEventListener('mousedown', (e) => {
-            if (e.button !== 2) {
-                playerStates[activePlayerIndex].mouseDown = true;
-            }
-        }, true);
-        
-        document.addEventListener('mouseup', (e) => {
-            if (e.button !== 2) {
-                playerStates[activePlayerIndex].mouseDown = false;
-            }
-        }, true);
-        
-        // Track keyboard
-        document.addEventListener('keydown', (e) => {
-            playerStates[activePlayerIndex].keys[e.code] = true;
-        }, true);
-        
-        document.addEventListener('keyup', (e) => {
-            playerStates[activePlayerIndex].keys[e.code] = false;
-        }, true);
-        
-        console.log('[GotaMod v2] Input handlers ready');
+        console.log('[GotaMod v2] Input handlers ready (right-click to switch)');
     }
 
     // Switch active player
