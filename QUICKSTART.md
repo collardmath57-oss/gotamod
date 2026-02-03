@@ -1,6 +1,12 @@
 # GotaMod Quick Start Guide
 
-## Installation (5 minutes)
+## 🎯 What This Does
+
+Connects **2 players to the SAME server** in gota.io without opening 2 pages!
+
+Perfect for **gota.io/camlan** - both players join the same game session.
+
+## Installation (2 minutes)
 
 ### Step 1: Install Tampermonkey
 - Chrome: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
@@ -9,18 +15,18 @@
 
 ### Step 2: Install GotaMod Script
 
-**Option A: Basic Version (Recommended)**
-1. Click [here](https://raw.githubusercontent.com/collardmath57-oss/gotamod/main/gotamod.user.js)
-2. Tampermonkey will detect it - click "Install"
+1. Open Tampermonkey dashboard (click extension icon → Dashboard)
+2. Click "Create a new script" (+ button)
+3. Copy all content from `gotamod.user.js` in this repo
+4. Paste into Tampermonkey editor
+5. Save (Ctrl+S)
 
-**Option B: CDN Version (Advanced)**
-1. Click [here](https://raw.githubusercontent.com/collardmath57-oss/gotamod/main/gotamod-cdn.user.js)
-2. Tampermonkey will detect it - click "Install"
+### Step 3: Play with 2 Players!
 
-### Step 3: Play
-1. Go to https://gota.io/
-2. The page splits into two game instances automatically
-3. Start playing!
+1. Go to **https://gota.io/camlan** (or any gota.io URL)
+2. Start a game
+3. **TWO players connect to the SAME server automatically!**
+4. Right-click to switch between them
 
 ## Controls
 
@@ -28,24 +34,33 @@
 |--------|---------|
 | Switch Players | Right-Click anywhere |
 | Control Active Player | Mouse + Keyboard (normal gameplay) |
-| View Active Player | Look at border color & top indicator |
+| See Active Player | Green border (P1 left) or Red border (P2 right) |
 
 ## Visual Guide
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│              Player 1 Active (Right-click to switch)    │
-│                        [Indicator]                       │
-├──────────────────────────┬──────────────────────────────┤
-│                          │                              │
-│    Player 1 (Green)      │    Player 2 (Gray)           │
-│    ● Active              │    ○ Inactive                │
-│    ▓▓▓▓▓▓▓▓▓▓▓▓         │    ░░░░░░░░░░░░             │
-│                          │                              │
-│    [Game Instance 1]     │    [Game Instance 2]         │
-│                          │                              │
-└──────────────────────────┴──────────────────────────────┘
+┌────────────────────────────────────────────────────┐
+│    🎮 Player 1 (LEFT) | Right-Click to Switch     │
+├──────────────────────────┬─────────────────────────┤
+│                          │                         │
+│    Player 1 (Green)      │    Player 2 (Red)       │
+│    ● Active              │    ○ Inactive           │
+│    ▓▓▓▓▓▓▓▓▓▓▓▓         │    ░░░░░░░░░░░░        │
+│                          │                         │
+│    Both in SAME game!    │                         │
+│                          │                         │
+└──────────────────────────┴─────────────────────────┘
 ```
+
+## Key Feature: SAME SERVER!
+
+Unlike other mods that open 2 separate browser tabs/windows:
+
+- ✅ Both players connect to the SAME game server
+- ✅ Both players are in the SAME match
+- ✅ You can see both players in the game world
+- ✅ Switch between them with right-click
+- ✅ No need for multiple windows!
 
 ## Tips & Tricks
 
