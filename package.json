@@ -1,0 +1,29 @@
+{
+  "name": "gotamod",
+  "version": "1.0.0",
+  "description": "A Tampermonkey userscript for dual player control in gota.io with right-click switching",
+  "main": "gotamod.user.js",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/collardmath57-oss/gotamod.git"
+  },
+  "keywords": [
+    "gota.io",
+    "tampermonkey",
+    "userscript",
+    "dual-player",
+    "game-mod"
+  ],
+  "author": "GotaMod Contributors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/collardmath57-oss/gotamod/issues"
+  },
+  "homepage": "https://github.com/collardmath57-oss/gotamod#readme",
+  "cdn": {
+    "jsdelivr": "https://cdn.jsdelivr.net/gh/collardmath57-oss/gotamod@latest/gotamod.user.js"
+  }
+}
